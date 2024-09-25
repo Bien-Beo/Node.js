@@ -3,6 +3,11 @@ import cors from 'cors'
 require('dotenv').config()
 import initRoutes from './src/routes'
 require('./connection_databasse')
+const startBrowser = require('./browse')
+const scrapeCotroller = require('./scrape_controller') 
+
+let browse = startBrowser()
+scrapeCotroller(browse)
 
 const app = express()
 app.use(cors({ //cors: cau hinh url duoc phep truy cap
